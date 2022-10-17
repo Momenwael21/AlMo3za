@@ -1,2 +1,2 @@
-# AlMo3za
+# AlMao3za
 Islamic WebSite
