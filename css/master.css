@@ -1,0 +1,343 @@
+/* start global rules */
+:root {
+  --main-green: #43a047;
+  --sec-padding: 100px 0;
+}
+
+body {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title h2 {
+  color: var(--main-green);
+  text-align: center;
+  position: relative;
+  padding: 10px;
+  width: fit-content;
+}
+
+.section-title h2::before,
+.section-title h2::after {
+  content: "";
+  background-color: var(--main-green);
+  height: 3px;
+  position: absolute;
+}
+
+.section-title h2::before {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.section-title h2::after {
+  width: 50%;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+/* end global rules */
+
+/* start nav */
+nav {
+  background-color: transparent;
+  position: fixed !important;
+  display: block !important;
+  top: 0;
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  width: 100% !important;
+  transition: 0.6s all ease-in-out;
+  -webkit-transition: 0.6s all ease-in-out;
+  -moz-transition: 0.6s all ease-in-out;
+  -ms-transition: 0.6s all ease-in-out;
+  -o-transition: 0.6s all ease-in-out;
+  z-index: 1;
+}
+
+nav.active {
+  background-color: rgb(0, 0, 0, 0.7);
+}
+
+nav .navbar-brand {
+  font-size: 44px;
+  font-family: "thuluth-decorated";
+  font-weight: 400;
+  color: white !important;
+}
+
+nav button {
+  border: none !important;
+  outline: none !important;
+}
+
+nav button span {
+  color: white;
+  font-size: 25px;
+}
+
+nav .navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+nav .navbar-nav {
+  align-items: flex-start;
+}
+
+nav .navbar-nav li {
+  width: fit-content !important;
+}
+
+nav .navbar-nav li a {
+  position: relative;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: white !important;
+}
+
+nav .navbar-nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+}
+
+nav .navbar-nav li a:hover::after,
+nav .navbar-nav li a:focus::after,
+nav .navbar-nav li a.active::after {
+  width: 100%;
+  color: white !important;
+}
+/* end nav */
+
+/* start landing */
+.landing {
+  background: url(../imgs/1.jpg) center center/cover no-repeat;
+  height: 110vh;
+  padding: var(--sec-padding);
+}
+
+.landing .cont {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.landing h2 {
+  color: white;
+  font-size: 45px;
+  line-height: 1.9;
+}
+
+.landing button {
+  background-color: transparent;
+  color: white;
+  border: white 3px solid;
+  padding: 5px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  transition: 0.3s all ease-in-out;
+}
+
+.landing button svg {
+  padding-right: 7px;
+  padding-left: 6px;
+}
+
+.landing button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 105%;
+  background-color: white;
+  top: -1px;
+  right: -1px;
+  z-index: -1;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+}
+
+.landing button:hover::after,
+.landing button:focus::after {
+  width: 101%;
+}
+
+.landing button:hover,
+.landing button:focus {
+  color: black;
+}
+/* end landing */
+
+/* start hadith */
+.hadith {
+  padding: var(--sec-padding);
+}
+
+.hadith .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hadith .hadith-container {
+  margin: 40px 0 15px;
+  min-height: 350px;
+  box-shadow: -4px -4px 4px 0 #d1d9e6 inset, 4px 4px 4px 0 #d1d9e6 inset;
+  width: 100%;
+  padding: 40px;
+  font-size: 21px;
+  line-height: 2;
+}
+
+.hadith .hadith-number {
+  padding: 5px 10px;
+  font-size: 20px;
+  box-shadow: 2px 3px 8px 3px #d1d9e6;
+  margin: 15px;
+}
+
+.hadith .buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hadith .buttons button {
+  border: none;
+  font-size: 20px;
+  background-image: linear-gradient(to right, #56ae98, var(--main-green));
+  color: white;
+  padding: 5px 21px;
+  outline: none;
+  font-weight: 700;
+}
+/* end hadith */
+
+/* start lectures */
+.lectures {
+  background-color: rgb(248, 248, 248);
+  padding: var(--sec-padding);
+}
+
+.lectures .content {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "Cairo", sans-serif;
+}
+
+@media (max-width: 992px) {
+  .lectures .content {
+    justify-content: center;
+  }
+}
+
+.lectures .content .lectures-menu {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lectures .content .lectures-menu > [class^="lecture"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  border: 5px solid #c9c9c9;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .lectures .content .lectures-menu .lecture-4 {
+    margin-bottom: 40px;
+  }
+}
+
+.lectures .content .lectures-menu > [class^="lecture"] h5 {
+  color: var(--main-green);
+  font-size: 22px;
+}
+
+.lectures .content .lectures-menu > [class^="lecture"] .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+}
+
+.lectures .content .lectures-menu > [class^="lecture"] .image img {
+  width: 131%;
+}
+
+.lectures .content .lecture-show {
+  width: 100%;
+  height: 680px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.lectures .lecture-show iframe {
+  width: 100%;
+  height: 400px;
+  position: sticky;
+  top: 0;
+}
+/* end lectures */
