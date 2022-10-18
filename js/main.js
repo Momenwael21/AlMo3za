@@ -1,3 +1,13 @@
+let navLinks = document.querySelectorAll("nav .nav-item .nav-link");
+navLinks.forEach((ele) => {
+  ele.addEventListener("click", function (e) {
+    navLinks.forEach((ele) => {
+      ele.classList.remove("active");
+    });
+    e.currentTarget.classList.add("active");
+  });
+});
+
 // change nav background
 let fixedNav = document.querySelector(".navbar");
 let navContainer = document.querySelector(".navbar .container");
