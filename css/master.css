@@ -142,6 +142,11 @@ nav .navbar-nav li a.active::after {
   padding: var(--sec-padding);
 }
 
+.landing .container {
+  height: inherit;
+  position: relative;
+}
+
 .landing .cont {
   position: absolute;
   right: 20px;
@@ -159,8 +164,10 @@ nav .navbar-nav li a.active::after {
   line-height: 1.9;
 }
 
-.landing button {
+.landing a {
   background-color: transparent;
+  width: fit-content;
+  text-decoration: none;
   color: white;
   border: white 3px solid;
   padding: 5px;
@@ -170,14 +177,18 @@ nav .navbar-nav li a.active::after {
   border-radius: 5px;
   position: relative;
   transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
 }
 
-.landing button svg {
+.landing a svg {
   padding-right: 7px;
   padding-left: 6px;
 }
 
-.landing button::after {
+.landing a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -193,13 +204,13 @@ nav .navbar-nav li a.active::after {
   -o-transition: 0.3s all ease-in-out;
 }
 
-.landing button:hover::after,
-.landing button:focus::after {
+.landing a:hover::after,
+.landing a:focus::after {
   width: 101%;
 }
 
-.landing button:hover,
-.landing button:focus {
+.landing a:hover,
+.landing a:focus {
   color: black;
 }
 /* end landing */

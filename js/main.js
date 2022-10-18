@@ -1,4 +1,29 @@
+// give active class for active nav links
 let navLinks = document.querySelectorAll("nav .nav-item .nav-link");
+let hadith = document.querySelector(".hadith");
+let lectures = document.querySelector(".lectures");
+let quran = document.querySelector(".quran");
+let prayer = document.querySelector(".prayer-time");
+
+window.addEventListener("scroll", function () {
+  if (hadith.style.top == 0) {
+    navLinks.forEach((ele) => {
+      ele.classList.remove("active");
+    });
+    document.querySelector(".ahadith-link").classList.add("active");
+  } else if (lectures.style.top == 0) {
+    navLinks.forEach((ele) => {
+      ele.classList.remove("active");
+    });
+    document.querySelector(".quran-link").classList.add("active");
+  } else if (quran.style.top == 0) {
+    navLinks.forEach((ele) => {
+      ele.classList.remove("active");
+    });
+    document.querySelector(".quran-link").classList.add("active");
+  }
+});
+
 navLinks.forEach((ele) => {
   ele.addEventListener("click", function (e) {
     navLinks.forEach((ele) => {
