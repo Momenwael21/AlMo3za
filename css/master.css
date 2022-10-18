@@ -354,3 +354,33 @@ nav .navbar-nav li a.active::after {
   top: 0;
 }
 /* end lectures */
+
+/* start quran */
+.quran {
+  padding: var(--sec-padding);
+}
+
+.quran .section-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quran .section-title h5 {
+  margin-top: 15px;
+}
+
+.quran .quran-pages {
+}
+
+.quran .quran-pages a {
+  text-decoration: none;
+  color: initial;
+}
+
+.quran .quran-pages a svg {
+}
+
+.quran .quran-pages a h3 {
+}
+/* end quran */
