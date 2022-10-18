@@ -8,7 +8,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "D:/Web/JavaScript/Islamic/index.html",
+      "url": "D:/Web/JavaScript/Islamic/AlMo3za/index.html",
       "webRoot": "${workspaceFolder}"
     }
   ]
