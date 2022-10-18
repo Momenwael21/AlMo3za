@@ -443,10 +443,3 @@ nav .navbar-nav li a.active::after {
   opacity: 0.4;
 }
 /* end quran */
-
-/* =============================== start page quran reading =============================== */
-.quran-reading {
-  background: url(../imgs/quran-bg.png) center center/cover no-repeat;
-  height: fit-content;
-}
-/* =============================== end page quran reading =============================== */
