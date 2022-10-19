@@ -1,29 +1,25 @@
-// give active class for active nav links
+//give active class for active nav links by click
 let navLinks = document.querySelectorAll("nav .nav-item .nav-link");
-let hadith = document.querySelector(".hadith");
-let lectures = document.querySelector(".lectures");
-let quran = document.querySelector(".quran");
-let prayer = document.querySelector(".prayer-time");
+let sections = document.querySelectorAll("section");
 
 window.addEventListener("scroll", function () {
-  if (hadith.style.top == 0) {
-    navLinks.forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    document.querySelector(".ahadith-link").classList.add("active");
-  } else if (lectures.style.top == 0) {
-    navLinks.forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    document.querySelector(".quran-link").classList.add("active");
-  } else if (quran.style.top == 0) {
-    navLinks.forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    document.querySelector(".quran-link").classList.add("active");
-  }
+  var scrollPosition = document.documentElement.scrollTop;
+  sections.forEach((section) => {
+    if (
+      scrollPosition >= section.offsetTop &&
+      scrollPosition < section.offsetTop + section.offsetHeight
+    ) {
+      navLinks.forEach((link) => link.classList.remove("active"));
+      navLinks.forEach((link) => {
+        if (link.classList.contains(`${section.className}-link`)) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
 });
 
+// give active class for active nav links by click
 navLinks.forEach((ele) => {
   ele.addEventListener("click", function (e) {
     navLinks.forEach((ele) => {
@@ -90,8 +86,8 @@ btnPrev.addEventListener("click", function () {
 });
 
 function hadithChange() {
-  hadithIndex > 1896 ? (hadithIndex = 0) : hadithIndex;
-  hadithIndex < 0 ? (hadithIndex = 1896) : hadithIndex;
+  hadithIndex > 1895 ? (hadithIndex = 0) : hadithIndex;
+  hadithIndex < 0 ? (hadithIndex = 1895) : hadithIndex;
   hadiths.then((data) => {
     hadithContiner.textContent = data.AllChapters[hadithIndex].Ar_Text;
     hadithNumber.textContent = `${data.AllChapters[hadithIndex].Hadith_ID}/${data.AllChapters.length}`;

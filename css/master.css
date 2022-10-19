@@ -7,6 +7,7 @@
 body {
   direction: rtl;
   scroll-behavior: smooth;
+  position: relative;
 }
 
 ::-webkit-scrollbar {
@@ -148,23 +149,30 @@ nav .navbar-nav li a.active::after {
 }
 
 .landing .cont {
-  position: absolute;
-  right: 20px;
-  top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 38%;
+}
+
+.landing h4 {
+  color: white;
 }
 
 .landing h2 {
   color: white;
   font-size: 45px;
   line-height: 1.9;
+  text-align: center;
 }
 
-.landing a {
+.landing .container a {
   background-color: transparent;
   width: fit-content;
   text-decoration: none;
@@ -183,12 +191,12 @@ nav .navbar-nav li a.active::after {
   -o-transition: 0.3s all ease-in-out;
 }
 
-.landing a svg {
+.landing .container a svg {
   padding-right: 7px;
   padding-left: 6px;
 }
 
-.landing a::after {
+.landing .container a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -204,14 +212,23 @@ nav .navbar-nav li a.active::after {
   -o-transition: 0.3s all ease-in-out;
 }
 
-.landing a:hover::after,
-.landing a:focus::after {
+.landing .container a:hover::after,
+.landing .container a:focus::after {
   width: 101%;
 }
 
-.landing a:hover,
-.landing a:focus {
+.landing .container a:hover,
+.landing .container a:focus {
   color: black;
+}
+
+.to-top {
+  color: white;
+  background-color: black;
+  position: sticky;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px;
 }
 /* end landing */
 
