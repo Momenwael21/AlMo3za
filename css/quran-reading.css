@@ -1,4 +1,65 @@
-body {
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
   background: url(../imgs/quran-bg.png) center center/cover no-repeat;
-  height: fit-content;
+  height: 100vh;
+  width: 100%;
+  z-index: -10;
+  opacity: 0.5;
 }
+
+/* start surahs */
+.surahs {
+  margin-top: 120px;
+}
+
+.surahs .surah {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  background-image: linear-gradient(to right, black, #393939);
+  padding: 20px 46px;
+  color: white;
+  border-radius: 10px;
+  width: 222px;
+  transition: 0.5s all ease-in-out;
+  -webkit-transition: 0.5s all ease-in-out;
+  -moz-transition: 0.5s all ease-in-out;
+  -ms-transition: 0.5s all ease-in-out;
+  -o-transition: 0.5s all ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: -2;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.surahs .surah::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #00a77d, var(--main-green));
+  z-index: -1;
+  width: 0;
+  transition: 0.5s all ease-in-out;
+}
+
+.surahs .surah:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.surahs .surah p {
+  margin: 5px;
+}
+/* end surahs */
