@@ -6,7 +6,7 @@ window.addEventListener("scroll", function () {
   var scrollPosition = document.documentElement.scrollTop;
   sections.forEach((section) => {
     if (
-      scrollPosition >= section.offsetTop &&
+      scrollPosition + 200 > section.offsetTop &&
       scrollPosition < section.offsetTop + section.offsetHeight
     ) {
       navLinks.forEach((link) => link.classList.remove("active"));
