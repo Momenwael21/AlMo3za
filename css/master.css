@@ -163,6 +163,8 @@ nav .navbar-nav li a.active::after {
 
 .landing h4 {
   color: white;
+  font-family: "Cairo", sans-serif;
+  font-weight: bolder;
 }
 
 .landing h2 {
@@ -170,6 +172,8 @@ nav .navbar-nav li a.active::after {
   font-size: 45px;
   line-height: 1.9;
   text-align: center;
+  font-family: "Cairo", sans-serif;
+  font-weight: bolder;
 }
 
 .landing .container a {

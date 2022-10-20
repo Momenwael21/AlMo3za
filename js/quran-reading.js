@@ -7,9 +7,7 @@ window.addEventListener("load", function () {
 });
 
 // api for quran surahs data
-let surahs = fetch(
-  "https://raw.githubusercontent.com/rn0x/Quran-Json/main/Quran.json"
-).then((resp) => resp.json());
+let surahs = fetch("../APIs/quran-reading.json").then((resp) => resp.json());
 
 window.addEventListener("load", function () {
   surahs.then((response) => {
