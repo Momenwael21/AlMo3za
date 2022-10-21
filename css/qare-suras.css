@@ -10,23 +10,45 @@ body::before {
   opacity: 0.5;
 }
 
-.quraa {
+/* start surahs */
+.surahs {
   margin-top: 120px;
+}
+
+.surahs .surahs-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   font-family: "Cairo", sans-serif;
 }
 
-.quraa .qare {
-  text-decoration: none;
+.surahs .surahs-head h1 {
+  font-weight: 700;
+}
+
+.surahs .surahs-head h3,
+.surahs .surahs-head h1,
+.surahs .surahs-head audio {
+  margin: 10px;
+}
+
+.surahs audio {
+  width: 60%;
+}
+
+.surahs .surah {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   margin: 15px;
   background-image: linear-gradient(to right, black, #393939);
-  padding: 31px 12px;
+  padding: 20px 46px;
   color: white;
   border-radius: 10px;
-  width: 280px;
+  width: 222px;
   transition: 0.3s all ease-in-out 0.1s;
   -webkit-transition: 0.3s all ease-in-out 0.1s;
   -moz-transition: 0.3s all ease-in-out 0.1s;
@@ -40,7 +62,7 @@ body::before {
   cursor: pointer;
 }
 
-.quraa .qare::before {
+.surahs .surah::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -57,7 +79,7 @@ body::before {
 }
 
 @media (max-width: 991px) {
-  .quraa .qare::before {
+  .surahs .surah::before {
     transition: 0.2s all ease-in-out;
     -webkit-transition: 0.2s all ease-in-out;
     -moz-transition: 0.2s all ease-in-out;
@@ -66,11 +88,11 @@ body::before {
   }
 }
 
-.quraa .qare:hover::before {
+.surahs .surah:hover::before {
   width: 100% !important;
 }
 
-.quraa .qare:hover {
+.surahs .surah:hover {
   transform: scale(1.1) !important;
   -webkit-transform: scale(1.1) !important;
   -moz-transform: scale(1.1) !important;
@@ -78,11 +100,6 @@ body::before {
   -o-transform: scale(1.1) !important;
 }
 
-.quraa .qare h5 {
-  font-weight: 700;
-}
-
-.quraa .qare p {
+.surahs .surah p {
   margin: 5px;
-  font-size: 14px;
 }

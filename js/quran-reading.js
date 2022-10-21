@@ -14,7 +14,6 @@ window.addEventListener("load", function () {
     for (i = 0; i < response.length; i++) {
       let div = this.document.createElement("div");
       div.classList.add("surah", `number-${response[i]["id"]}`);
-      div.number = counter;
 
       let h5 = this.document.createElement("h5");
       h5.textContent = response[i].name;

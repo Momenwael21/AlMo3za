@@ -1,3 +1,11 @@
+//give quran link active in navbar
+window.addEventListener("load", function () {
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+  });
+  this.document.querySelector(".quran-link").classList.add("active");
+});
+
 // fetching api of quraa
 let quraa = fetch("../APIs/quran-listening.json")
   .then((response) => response.json())
@@ -8,19 +16,26 @@ window.addEventListener("load", function () {
   quraa.then((resp) => {
     for (i = 0; i < resp.length; i++) {
       if (resp[i].count == 114 && resp[i].rewaya == "حفص عن عاصم") {
-        let div = this.document.createElement("div");
-        div.classList.add("qare");
+        let a = this.document.createElement("a");
+        a.href = "../pages/qare-suras.html";
+        a.classList.add("qare", `${resp[i].id}`);
 
         let h5 = this.document.createElement("h5");
         h5.textContent = resp[i].name;
-        div.appendChild(h5);
+        a.appendChild(h5);
 
         let p = this.document.createElement("p");
         p.textContent = `براوية ${resp[i].rewaya}`;
-        div.appendChild(p);
+        a.appendChild(p);
 
-        this.document.querySelector(".quraa .container").appendChild(div);
+        this.document.querySelector(".quraa .container").appendChild(a);
       }
     }
+    let qares = this.document.querySelectorAll(".quraa .qare");
+    qares.forEach((qare) => {
+      qare.addEventListener("click", function () {
+        sessionStorage.setItem("currentQare", `${qare.classList[1]}`);
+      });
+    });
   });
 });
