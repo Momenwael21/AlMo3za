@@ -14,6 +14,7 @@ window.addEventListener("load", function () {
     for (i = 0; i < response.length; i++) {
       let div = this.document.createElement("div");
       div.classList.add("surah", `number-${response[i]["id"]}`);
+      div.number = counter;
 
       let h5 = this.document.createElement("h5");
       h5.textContent = response[i].name;
@@ -24,6 +25,9 @@ window.addEventListener("load", function () {
       div.appendChild(p);
 
       this.document.querySelector(".surahs .container").appendChild(div);
+    }
+    for (i = 0; i < response.length; i++) {
+      delete response[i].array;
     }
 
     // add event click to surahs => popup

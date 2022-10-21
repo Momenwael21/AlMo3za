@@ -1,0 +1,87 @@
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url(../imgs/quran-bg.png) center center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  z-index: -10;
+  opacity: 0.5;
+}
+
+.quraa {
+  margin-top: 120px;
+  font-family: "Cairo", sans-serif;
+}
+
+.quraa .qare {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 15px;
+  background-image: linear-gradient(to right, black, #393939);
+  padding: 31px 46px;
+  color: white;
+  border-radius: 10px;
+  width: 280px;
+  transition: 0.3s all ease-in-out 0.1s;
+  -webkit-transition: 0.3s all ease-in-out 0.1s;
+  -moz-transition: 0.3s all ease-in-out 0.1s;
+  -ms-transition: 0.3s all ease-in-out 0.1s;
+  -o-transition: 0.3s all ease-in-out 0.1s;
+  overflow: hidden;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+}
+
+.quraa .qare::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #1f9725, var(--main-green));
+  z-index: -1;
+  width: 0;
+  transition: 0.2s all ease-in-out 0.1s;
+  -webkit-transition: 0.2s all ease-in-out 0.1s;
+  -moz-transition: 0.2s all ease-in-out 0.1s;
+  -ms-transition: 0.2s all ease-in-out 0.1s;
+  -o-transition: 0.2s all ease-in-out 0.1s;
+}
+
+@media (max-width: 991px) {
+  .quraa .qare::before {
+    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -ms-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+  }
+}
+
+.quraa .qare:hover::before {
+  width: 100% !important;
+}
+
+.quraa .qare:hover {
+  transform: scale(1.1) !important;
+  -webkit-transform: scale(1.1) !important;
+  -moz-transform: scale(1.1) !important;
+  -ms-transform: scale(1.1) !important;
+  -o-transform: scale(1.1) !important;
+}
+
+.quraa .qare h5 {
+  font-weight: 700;
+}
+
+.quraa .qare p {
+  margin: 5px;
+  font-size: 14px;
+}
