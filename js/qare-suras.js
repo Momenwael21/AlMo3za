@@ -59,7 +59,6 @@ window.addEventListener("load", function () {
         if (surah.classList[1].toString().length == 1) {
           console.log(currentQare);
           console.log(`${currentQare.Server}/00${surah.classList[1]}.mp3`);
-
           audio.src = `${currentQare.Server}/00${surah.classList[1]}.mp3`;
         } else if (surah.classList[1].toString().length == 2) {
           audio.src = `${currentQare.Server}/0${surah.classList[1]}.mp3`;
