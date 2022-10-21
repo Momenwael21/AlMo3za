@@ -35,7 +35,7 @@ body::before {
 }
 
 .surahs audio {
-  width: 60%;
+  width: 100%;
 }
 
 .surahs .surah {
@@ -48,7 +48,7 @@ body::before {
   padding: 20px 46px;
   color: white;
   border-radius: 10px;
-  width: 222px;
+  width: 100%;
   transition: 0.3s all ease-in-out 0.1s;
   -webkit-transition: 0.3s all ease-in-out 0.1s;
   -moz-transition: 0.3s all ease-in-out 0.1s;
@@ -62,7 +62,7 @@ body::before {
   cursor: pointer;
 }
 
-.surahs .surah::before {
+/* .surahs .surah::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -76,7 +76,7 @@ body::before {
   -moz-transition: 0.2s all ease-in-out 0.1s;
   -ms-transition: 0.2s all ease-in-out 0.1s;
   -o-transition: 0.2s all ease-in-out 0.1s;
-}
+} */
 
 @media (max-width: 991px) {
   .surahs .surah::before {
@@ -88,16 +88,20 @@ body::before {
   }
 }
 
-.surahs .surah:hover::before {
+/* .surahs .surah:hover::before {
   width: 100% !important;
-}
+} */
 
 .surahs .surah:hover {
-  transform: scale(1.1) !important;
-  -webkit-transform: scale(1.1) !important;
-  -moz-transform: scale(1.1) !important;
-  -ms-transform: scale(1.1) !important;
-  -o-transform: scale(1.1) !important;
+  transform: scale(1.07) !important;
+  -webkit-transform: scale(1.07) !important;
+  -moz-transform: scale(1.07) !important;
+  -ms-transform: scale(1.07) !important;
+  -o-transform: scale(1.07) !important;
+}
+
+.surahs .surah audio {
+  margin: 10px;
 }
 
 .surahs .surah p {

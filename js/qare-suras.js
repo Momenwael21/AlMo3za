@@ -9,6 +9,9 @@ window.addEventListener("load", function () {
 
 // api for quran surahs data
 let surahs = fetch("../APIs/quran-reading.json").then((resp) => resp.json());
+let quraa = fetch("../APIs/quran-listening.json")
+  .then((response) => response.json())
+  .then((response) => response.reciters);
 
 window.addEventListener("load", function () {
   let counter = 1;
@@ -25,49 +28,34 @@ window.addEventListener("load", function () {
       let p = this.document.createElement("p");
       p.textContent = `و عدد آياتها ${response[i].array.length}`;
       div.appendChild(p);
+      let audio = this.document.createElement("audio");
 
-      this.document.querySelector(".surahs .container").appendChild(div);
-    }
-    for (i = 0; i < response.length; i++) {
-      delete response[i].array;
+      quraa.then((resp) => {
+        for (i = 0; i < resp.length; i++) {
+          if (resp[i].id == sessionStorage.getItem("currentQare")) {
+            this.document.querySelector(".surahs .surahs-head h1").textContent =
+              resp[i].name;
+
+            audio.setAttribute(
+              "src",
+              `${resp[i].Server}/00${div.classList[1]}.mp3`
+            );
+          }
+        }
+        audio.setAttribute("controls", true);
+        div.appendChild(audio);
+
+        this.document.querySelector(".surahs .container").appendChild(div);
+      });
     }
   });
 });
 
 // fetching api of surahs sounds from server
 
-let quraa = fetch("../APIs/quran-listening.json")
-  .then((response) => response.json())
-  .then((response) => response.reciters);
-
-window.addEventListener("load", function () {
-  let allSurahs = document.querySelectorAll(".surahs .surah");
-  let audio = document.querySelector(".surahs audio");
-  allSurahs.forEach((surah) => {
-    quraa.then((resp) => {
-      for (i = 0; i < resp.length; i++) {
-        if (resp[i].id == sessionStorage.getItem("currentQare")) {
-          var currentQare = resp[i];
-          this.document.querySelector(".surahs .surahs-head h1").textContent =
-            resp[i].name;
-        }
-      }
-      surah.addEventListener("click", function () {
-        console.log(surah);
-        console.log(currentQare);
-
-        if (surah.classList[1].toString().length == 1) {
-          console.log(currentQare);
-          console.log(`${currentQare.Server}/00${surah.classList[1]}.mp3`);
-          audio.src = `${currentQare.Server}/00${surah.classList[1]}.mp3`;
-        } else if (surah.classList[1].toString().length == 2) {
-          audio.src = `${currentQare.Server}/0${surah.classList[1]}.mp3`;
-          console.log(`${currentQare.Server}/0${surah.classList[1]}.mp3`);
-        } else if (surah.classList[1].toString().length == 3) {
-          audio.src = `${currentQare.Server}/${surah.classList[1]}.mp3`;
-          console.log(`${currentQare.Server}/${surah.classList[1]}.mp3`);
-        }
-      });
-    });
-  });
-});
+// window.addEventListener("load", function () {
+//   let allSurahs = document.querySelectorAll(".surahs .surah");
+//   allSurahs.forEach((surah) => {
+//     surah.addEventListener("click", () => {});
+//   });
+// });
