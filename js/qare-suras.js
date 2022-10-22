@@ -48,6 +48,7 @@ window.addEventListener("load", function () {
           for (i = 0; i < response.length; i++) {
             console.log(response[i]);
             // to give server link to audio tag
+            console.log(sessionStorage.getItem("currentQare"));
             if (response[i].id == sessionStorage.getItem("currentQare")) {
               console.log(response[i]);
               if ((index + 1).toString().length == 1) {
