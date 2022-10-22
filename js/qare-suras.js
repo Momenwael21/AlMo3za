@@ -32,7 +32,6 @@ window.addEventListener("load", function () {
         .then((response) => {
           // to get qare name
           let surahs = this.document.querySelectorAll(".surahs .surah");
-          console.log(surahs);
           for (i = 0; i < response.length; i++) {
             if (response[i].id == localStorage.getItem("currentQare")) {
               document.querySelector(".surahs .surahs-head h1").textContent =
@@ -43,13 +42,9 @@ window.addEventListener("load", function () {
           let audio = document.querySelector(".surahs .player audio");
           surahs.forEach((surah, index) => {
             surah.addEventListener("click", function () {
-              console.log("say Hello");
-              for (i = 0; i < 114; i++) {
-                console.log(i);
-
+              for (i = 0; i < response.length; i++) {
                 // to give server link to audio tag
                 if (response[i].id == localStorage.getItem("currentQare")) {
-                  console.log(response[i]);
                   if ((index + 1).toString().length == 1) {
                     audio.src = `${response[i].Server}/00${index + 1}.mp3`;
                   } else if ((index + 1).toString().length == 2) {
