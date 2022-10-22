@@ -5,57 +5,75 @@ window.addEventListener("load", function () {
     link.classList.remove("active");
   });
   this.document.querySelector(".quran-link").classList.add("active");
-});
 
-// api for quran surahs data
-let surahs = fetch("../APIs/quran-reading.json").then((resp) => resp.json());
-let quraa = fetch("../APIs/quran-listening.json")
-  .then((response) => response.json())
-  .then((response) => response.reciters);
+  fetch("../APIs/quran-reading.json")
+    .then((resp) => resp.json())
+    .then((response) => {
+      for (i = 0; i < response.length; i++) {
+        let div = this.document.createElement("div");
+        div.classList.add("surah");
 
-window.addEventListener("load", function () {
-  let counter = 1;
-  surahs.then((response) => {
-    for (i = 0; i < response.length; i++) {
-      let div = this.document.createElement("div");
-      div.classList.add("surah", `${counter}`);
-      counter++;
+        let h5 = this.document.createElement("h5");
+        h5.textContent = response[i].name;
+        div.appendChild(h5);
 
-      let h5 = this.document.createElement("h5");
-      h5.textContent = response[i].name;
-      div.appendChild(h5);
+        let p = this.document.createElement("p");
+        p.textContent = `و عدد آياتها ${response[i].array.length}`;
+        div.appendChild(p);
 
-      let p = this.document.createElement("p");
-      p.textContent = `و عدد آياتها ${response[i].array.length}`;
-      div.appendChild(p);
-      let audio = this.document.createElement("audio");
-
-      quraa.then((resp) => {
-        for (i = 0; i < resp.length; i++) {
-          if (resp[i].id == sessionStorage.getItem("currentQare")) {
-            this.document.querySelector(".surahs .surahs-head h1").textContent =
-              resp[i].name;
-
-            audio.setAttribute(
-              "src",
-              `${resp[i].Server}/00${div.classList[1]}.mp3`
-            );
-          }
+        this.document
+          .querySelector(".surahs .surahs-container")
+          .appendChild(div);
+      }
+    });
+  // fetch api of sound
+  fetch("../APIs/quran-listening.json")
+    .then((response) => response.json())
+    .then((response) => response.reciters)
+    .then((response) => {
+      // to get qare name
+      for (i = 0; i < response.length; i++) {
+        if (response[i].id == sessionStorage.getItem("currentQare")) {
+          document.querySelector(".surahs .surahs-head h1").textContent =
+            response[i].name;
         }
-        audio.setAttribute("controls", true);
-        div.appendChild(audio);
-
-        this.document.querySelector(".surahs .container").appendChild(div);
+      }
+      // to select surah and play audio
+      let surahs = document.querySelectorAll(".surahs .surah");
+      let audio = document.querySelector(".surahs .player audio");
+      surahs.forEach((surah, index) => {
+        surah.addEventListener("click", function () {
+          for (i = 0; i < response.length; i++) {
+            // to give server link to audio tag
+            if (response[i].id == sessionStorage.getItem("currentQare")) {
+              if ((index + 1).toString().length == 1) {
+                audio.src = `${response[i].Server}/00${index + 1}.mp3`;
+              } else if ((index + 1).toString().length == 2) {
+                audio.src = `${response[i].Server}/0${index + 1}.mp3`;
+              } else if ((index + 1).toString().length == 3) {
+                audio.src = `${response[i].Server}/${index + 1}.mp3`;
+              }
+              document.querySelector(
+                ".surahs .player .surahName"
+              ).textContent = `سورة ${surah.firstChild.textContent}`;
+              document.querySelector(
+                ".surahs .player .sheikh"
+              ).textContent = `للقارئ الشيخ ${response[i].name}`;
+              surahs.forEach((surah) => surah.classList.remove("active"));
+              surah.classList.add("active");
+              audio.addEventListener("ended", () => {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "السورة انتهت",
+                  showConfirmButton: true,
+                });
+              });
+            }
+            break;
+          }
+        });
       });
-    }
-  });
+    });
 });
-
-// fetching api of surahs sounds from server
-
-// window.addEventListener("load", function () {
-//   let allSurahs = document.querySelectorAll(".surahs .surah");
-//   allSurahs.forEach((surah) => {
-//     surah.addEventListener("click", () => {});
-//   });
-// });
+// api for quran surahs data
