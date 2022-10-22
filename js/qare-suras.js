@@ -31,6 +31,8 @@ window.addEventListener("load", function () {
     .then((response) => response.json())
     .then((response) => response.reciters)
     .then((response) => {
+      let surahs = document.querySelectorAll(".surahs .surah");
+
       // to get qare name
       for (i = 0; i < response.length; i++) {
         if (response[i].id == sessionStorage.getItem("currentQare")) {
@@ -39,13 +41,13 @@ window.addEventListener("load", function () {
         }
       }
       // to select surah and play audio
-      let surahs = document.querySelectorAll(".surahs .surah");
       let audio = document.querySelector(".surahs .player audio");
       surahs.forEach((surah, index) => {
         surah.addEventListener("click", function () {
           for (i = 0; i < response.length; i++) {
             // to give server link to audio tag
             if (response[i].id == sessionStorage.getItem("currentQare")) {
+              console.log(response[i]);
               if ((index + 1).toString().length == 1) {
                 audio.src = `${response[i].Server}/00${index + 1}.mp3`;
               } else if ((index + 1).toString().length == 2) {
@@ -70,7 +72,7 @@ window.addEventListener("load", function () {
                 });
               });
             }
-            break;
+            // break;
           }
         });
       });
