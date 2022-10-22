@@ -49,7 +49,7 @@ window.addEventListener("load", function () {
             console.log(response[i]);
             // to give server link to audio tag
             console.log(sessionStorage.getItem("currentQare"));
-            if (response[i].id == sessionStorage.getItem("currentQare")) {
+            if (+response[i].id == sessionStorage.getItem("currentQare")) {
               console.log(response[i]);
               if ((index + 1).toString().length == 1) {
                 audio.src = `https://server11.mp3quran.net/hawashi/00${
