@@ -46,6 +46,7 @@ window.addEventListener("load", function () {
       surahs.forEach((surah, index) => {
         surah.addEventListener("click", function () {
           for (i = 0; i < response.length; i++) {
+            console.log(response[i]);
             // to give server link to audio tag
             if (response[i].id == sessionStorage.getItem("currentQare")) {
               console.log(response[i]);
@@ -72,7 +73,7 @@ window.addEventListener("load", function () {
                   showConfirmButton: true,
                 });
               });
-            }
+            } else console.log("Not Found");
             // break;
           }
         });
