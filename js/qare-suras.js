@@ -81,7 +81,7 @@ window.addEventListener("load", function () {
           });
         });
       }),
-    0
+    10
   );
 });
 
