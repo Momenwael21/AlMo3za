@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
     let qares = this.document.querySelectorAll(".quraa .qare");
     qares.forEach((qare) => {
       qare.addEventListener("click", function () {
-        sessionStorage.setItem("currentQare", `${qare.classList[1]}`);
+        localStorage.setItem("currentQare", `${qare.classList[1]}`);
       });
     });
   });
