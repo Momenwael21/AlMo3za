@@ -31,6 +31,7 @@ window.addEventListener("load", function () {
     .then((response) => response.json())
     .then((response) => response.reciters)
     .then((response) => {
+      console.log(response);
       let surahs = document.querySelectorAll(".surahs .surah");
 
       // to get qare name
