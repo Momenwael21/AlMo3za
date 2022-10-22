@@ -31,7 +31,6 @@ window.addEventListener("load", function () {
     .then((response) => response.json())
     .then((response) => response.reciters)
     .then((response) => {
-      console.log(response);
       let surahs = document.querySelectorAll(".surahs .surah");
 
       // to get qare name
@@ -46,15 +45,12 @@ window.addEventListener("load", function () {
       surahs.forEach((surah, index) => {
         surah.addEventListener("click", function () {
           for (i = 0; i < response.length; i++) {
-            console.log(response[i].id);
             // to give server link to audio tag
             console.log(sessionStorage.getItem("currentQare"));
             if (response[i].id == sessionStorage.getItem("currentQare")) {
               console.log(response[i]);
               if ((index + 1).toString().length == 1) {
-                audio.src = `https://server11.mp3quran.net/hawashi/00${
-                  index + 1
-                }.mp3`;
+                audio.src = `${response[i].Server}/00${index + 1}.mp3`;
               } else if ((index + 1).toString().length == 2) {
                 audio.src = `${response[i].Server}/0${index + 1}.mp3`;
               } else if ((index + 1).toString().length == 3) {
@@ -76,7 +72,7 @@ window.addEventListener("load", function () {
                   showConfirmButton: true,
                 });
               });
-            } else console.log("Not Found");
+            }
             // break;
           }
         });
