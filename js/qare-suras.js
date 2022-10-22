@@ -51,7 +51,9 @@ window.addEventListener("load", function () {
             if (response[i].id == sessionStorage.getItem("currentQare")) {
               console.log(response[i]);
               if ((index + 1).toString().length == 1) {
-                audio.src = `${response[i].Server}/00${index + 1}.mp3`;
+                audio.src = `https://server11.mp3quran.net/hawashi/00${
+                  index + 1
+                }.mp3`;
               } else if ((index + 1).toString().length == 2) {
                 audio.src = `${response[i].Server}/0${index + 1}.mp3`;
               } else if ((index + 1).toString().length == 3) {
