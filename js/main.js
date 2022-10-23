@@ -1,4 +1,4 @@
-//give active class for active nav links by click
+//give active class for active nav links by scroll
 let navLinks = document.querySelectorAll("nav .nav-item .nav-link");
 let sections = document.querySelectorAll("section");
 
@@ -94,5 +94,56 @@ function hadithChange() {
     hadithIndex++;
   });
 }
-
 setInterval(hadithChange, 40000);
+
+// fetch prayer time
+
+// console.log(currentDT.getDate());
+// console.log(currentDT.getFullYear());
+// console.log(currentDT.getMonth());
+let z = new Object();
+z.hasOwnProperty();
+
+let timeCards = document.querySelectorAll(".prayer-time .card");
+function getPrayerTime() {
+  let currentDT = new Date();
+  fetch(
+    `https://api.aladhan.com/v1/calendarByCity?city=Mansoura&country=Egypt&method=2&month=${
+      currentDT.getMonth() + 1
+    }&year=${currentDT.getFullYear()}`
+  )
+    .then((response) => response.json())
+    .then(
+      (timesOfCurrentMonth) =>
+        timesOfCurrentMonth.data[`${currentDT.getDate() - 1}`]
+    )
+    .then((timesOfToday) => {
+      //get date of today hijri
+      let hijriContainer = document.querySelector(".prayer-time .hijri");
+      hijriContainer.textContent = `${timesOfToday.date.hijri.day} من ${timesOfToday.date.hijri.month.ar} لعام ${timesOfToday.date.hijri.year}`;
+
+      // get prayer times
+      let keys = Object.keys(timesOfToday.timings);
+      timeCards.forEach((card) => {
+        for (i = 0; i < 11; i++) {
+          if (card.classList[1] == keys[i]) {
+            let timeContainer = document.querySelector(
+              `.prayer-time .time-cards .${card.classList[1]} .time`
+            );
+            let prayTime =
+              timesOfToday.timings[`${card.classList[1]}`].split(" ")[0];
+
+            if (prayTime.split(":")[0] > 12) {
+              timeContainer.textContent = `${prayTime.split(":")[0] - 12}:${
+                prayTime.split(":")[1]
+              } مساءً`;
+            } else {
+              timeContainer.textContent = `${prayTime} صباحاً`;
+            }
+          }
+        }
+      });
+    });
+}
+
+getPrayerTime();
