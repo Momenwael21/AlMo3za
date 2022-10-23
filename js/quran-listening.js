@@ -18,7 +18,11 @@ window.addEventListener("load", function () {
       if (resp[i].count == 114 && resp[i].rewaya == "حفص عن عاصم") {
         let a = this.document.createElement("a");
         a.href = "../pages/qare-suras.html";
-        a.classList.add("qare", `${resp[i].id}`);
+        a.classList.add(
+          "qare",
+          `${resp[i].id}`,
+          `${resp[i].name.split(" ").join("-")}`
+        );
 
         let h5 = this.document.createElement("h5");
         h5.textContent = resp[i].name;
@@ -35,6 +39,7 @@ window.addEventListener("load", function () {
     qares.forEach((qare) => {
       qare.addEventListener("click", function () {
         localStorage.setItem("currentQare", `${qare.classList[1]}`);
+        localStorage.setItem("currentQareName", `${qare.classList[2]}`);
       });
     });
   });
