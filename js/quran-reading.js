@@ -5,7 +5,6 @@ navLinks.forEach((link) => {
 this.document.querySelector(".quran-link").classList.add("active");
 
 // api for quran surahs data
-
 window.addEventListener("load", function () {
   fetch("../APIs/quran-reading.json")
     .then((resp) => resp.json())
@@ -63,13 +62,16 @@ window.addEventListener("load", function () {
       });
     });
 });
-
 // api for quran array
 
 function getSurah(surahContainer, surah) {
+  let surahContent;
   for (i = 0; i < surah.length; i++) {
     if (`number-${surah[i]["id"]}` == surahContainer.classList[1]) {
-      return surah[i];
+      surahContent = surah[i];
+      delete surah[i];
+      break;
     }
   }
+  return surahContent;
 }
