@@ -6,6 +6,7 @@ this.document.querySelector(".quran-link").classList.add("active");
 
 // api for quran surahs data
 window.addEventListener("load", function () {
+  let t1 = new Date();
   fetch("../APIs/quran-reading.json")
     .then((resp) => resp.json())
     .then((response) => {
@@ -61,6 +62,8 @@ window.addEventListener("load", function () {
         });
       });
     });
+  let t2 = new Date();
+  console.log(t2 - t1);
 });
 // api for quran array
 
@@ -69,7 +72,6 @@ function getSurah(surahContainer, surah) {
   for (i = 0; i < surah.length; i++) {
     if (`number-${surah[i]["id"]}` == surahContainer.classList[1]) {
       surahContent = surah[i];
-      delete surah[i];
       break;
     }
   }
