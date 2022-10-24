@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
 // fetching api of quraa
 
 let quraaContainer = this.document.querySelector(".quraa .quraa-container");
-let rewayasType = document.querySelectorAll(".quraa .rewaya");
+let rewayasType = document.querySelectorAll(".quraa .rewaya div");
 let quraa = fetch("../APIs/quran-listening.json")
   .then((response) => response.json())
   .then((response) => response.reciters);
@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
     function getQuraa(rewayaType) {
       if (rewayaType == "moratal") {
         for (i = 0; i < resp.length; i++) {
-          if (resp[i].count == 114) {
+          if (resp[i].count == 114 && resp[i].rewaya != "المصحف المجود") {
             let a = this.document.createElement("a");
             a.href = "../pages/qare-suras.html";
             a.classList.add(
@@ -82,16 +82,16 @@ window.addEventListener("load", function () {
     // to get moshaf as the user choose
     rewayasType.forEach((moshaf) => {
       moshaf.addEventListener("click", function () {
+        console.log(moshaf);
         if (quraaContainer.innerHTML != "") {
           quraaContainer.innerHTML = "";
         }
-        if (
-          moshaf.classList.contains("active") &&
-          moshaf.classList.contains("moratal")
-        ) {
+        if (moshaf.classList[0] == "moratal") {
           getQuraa("moratal");
-        } else {
+        } else if (moshaf.classList[0] == "mojawoad") {
           getQuraa("mojawoad");
+        } else {
+          console.log("Error");
         }
         rewayasType.forEach((moshaf) => moshaf.classList.remove("active"));
         moshaf.classList.add("active");
