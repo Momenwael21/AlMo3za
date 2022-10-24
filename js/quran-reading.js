@@ -6,7 +6,6 @@ this.document.querySelector(".quran-link").classList.add("active");
 
 // api for quran surahs data
 window.addEventListener("load", function () {
-  let t1 = new Date();
   fetch("../APIs/quran-reading.json")
     .then((resp) => resp.json())
     .then((response) => {
@@ -24,9 +23,9 @@ window.addEventListener("load", function () {
 
         this.document.querySelector(".surahs .container").appendChild(div);
       }
-      // for (i = 0; i < response.length; i++) {
-      //   delete response[i].array;
-      // }
+      for (i = 0; i < response.length; i++) {
+        delete response[i].array;
+      }
 
       // add event click to surahs => popup
       let surahsNames = document.querySelectorAll(".surahs .container .surah");
@@ -62,8 +61,6 @@ window.addEventListener("load", function () {
         });
       });
     });
-  let t2 = new Date();
-  console.log(t2 - t1);
 });
 // api for quran array
 
