@@ -25,9 +25,9 @@ window.addEventListener("load", function () {
 
       this.document.querySelector(".surahs .container").appendChild(div);
     }
-    for (i = 0; i < response.length; i++) {
-      delete response[i].array;
-    }
+    // for (i = 0; i < response.length; i++) {
+    //   delete response[i].array;
+    // }
 
     // add event click to surahs => popup
     let surahsNames = document.querySelectorAll(".surahs .container .surah");
