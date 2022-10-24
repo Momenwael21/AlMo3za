@@ -105,7 +105,9 @@ body::before {
 .surahs .surah p {
   margin: 5px;
 }
+/* end surahs */
 
+/* start player */
 .surahs .player {
   position: sticky;
   bottom: 0;
@@ -164,3 +166,4 @@ body::before {
   margin: 15px;
   font-weight: 700;
 }
+/* end player */

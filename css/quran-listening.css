@@ -10,12 +10,35 @@ body::before {
   opacity: 0.5;
 }
 
+/* quraa section */
 .quraa {
   margin-top: 120px;
   font-family: "Cairo", sans-serif;
 }
 
-.quraa .qare {
+.quraa .rewaya {
+  display: flex;
+  align-items: flex-start;
+}
+
+.quraa .rewaya div::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #1f9725, var(--main-green));
+  z-index: -1;
+  width: 0;
+  transition: 0.2s all ease-in-out;
+  -webkit-transition: 0.2s all ease-in-out;
+  -moz-transition: 0.2s all ease-in-out;
+  -ms-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+}
+
+.quraa .qare,
+.quraa .rewaya div {
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -40,7 +63,23 @@ body::before {
   cursor: pointer;
 }
 
-.quraa .qare::before {
+.quraa .rewaya div.active {
+  background-image: linear-gradient(to right, #1f9725, var(--main-green));
+}
+
+.quraa .rewaya .moratal,
+.quraa .rewaya .mojawoad {
+  padding: 10px 15px;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  padding: 10px 15px;
+  margin: 10px;
+  width: fit-content;
+}
+
+.quraa .qare::before,
+.quraa .rewaya div::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -66,11 +105,13 @@ body::before {
   }
 }
 
-.quraa .qare:hover::before {
+.quraa .qare:hover::before,
+.quraa .rewaya div:hover::before {
   width: 100% !important;
 }
 
-.quraa .qare:hover {
+.quraa .qare:hover,
+.quraa .rewaya div:hover {
   transform: scale(1.1) !important;
   -webkit-transform: scale(1.1) !important;
   -moz-transform: scale(1.1) !important;

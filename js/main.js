@@ -97,13 +97,6 @@ function hadithChange() {
 setInterval(hadithChange, 40000);
 
 // fetch prayer time
-
-// console.log(currentDT.getDate());
-// console.log(currentDT.getFullYear());
-// console.log(currentDT.getMonth());
-let z = new Object();
-z.hasOwnProperty();
-
 let timeCards = document.querySelectorAll(".prayer-time .card");
 function getPrayerTime() {
   let currentDT = new Date();

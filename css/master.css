@@ -11,7 +11,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+::selection {
+  color: white;
+  background-color: var(--main-green);
+}
+
+.section-title h2:focus {
+  background-color: #1f9725;
 }
 
 .section-title {
@@ -574,3 +587,140 @@ nav .navbar-nav li a.active::after {
 }
 
 /* end prayer time */
+
+/* start contact */
+.contact {
+  background-image: linear-gradient(to right, #1f9725, var(--main-green));
+  padding: var(--sec-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../imgs/quran-bg.png) center center/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+}
+
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact .info {
+  margin-left: 20px;
+}
+
+.contact .info h3 {
+  font-family: "thuluth-decorated";
+  color: white;
+  font-size: 60px;
+}
+
+.contact .info h3 span {
+  font-size: 1rem;
+  font-family: "cairo", sans-serif;
+}
+
+.contact .info p {
+  font-family: "Cairo", sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+.contact .contact-us {
+  color: white;
+  font-family: "Cairo", sans-serif;
+  line-height: 2;
+}
+
+@media (min-width: 991px) {
+  .contact .contact-us {
+    border-right: 2px solid white;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 991px) {
+  .contact .contact-us {
+    border-top: 2px solid white;
+  }
+  .contact {
+    text-align: center;
+  }
+  .contact .contact-us a,
+  .contact .contact-us div {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.contact .contact-us h2 {
+  margin: 20px 0;
+}
+
+.contact .contact-us a,
+.contact .contact-us div {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+
+.contact .contact-us a svg,
+.contact .contact-us div svg {
+  color: white;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.contact .contact-us a p,
+.contact .contact-us div p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.contact .contact-us .mail {
+  background-color: white;
+  color: var(--main-green);
+  border: 1px solid white;
+  justify-content: center;
+  transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -moz-transition: 0.3s all ease-in-out;
+  -ms-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  width: 300px;
+}
+
+.contact .contact-us .mail:hover {
+  color: white;
+  background-color: transparent;
+}
+/* end contact */
+
+/* start footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  font-family: "Cairo", sans-serif;
+}
+footer p {
+  margin: 0;
+}
+
+footer span {
+  font-weight: 800;
+  color: #23b12a;
+  font-size: 20px;
+}
+/* end footer */
