@@ -5,6 +5,10 @@ navLinks.forEach((link) => {
 this.document.querySelector(".quran-link").classList.add("active");
 
 // api for quran surahs data
+let popUp = document.querySelector(".surahs .popup");
+let popContent = document.querySelector(".surahs .popup .pop-content");
+let popClose = document.querySelector(".surahs .popup .popup-close");
+
 window.addEventListener("load", function () {
   fetch("../APIs/quran-reading.json")
     .then((resp) => resp.json())
@@ -21,20 +25,9 @@ window.addEventListener("load", function () {
         p.textContent = `و عدد آياتها ${response[i].array.length}`;
         div.appendChild(p);
 
-        this.document.querySelector(".surahs .container").appendChild(div);
-      }
-      for (i = 0; i < response.length; i++) {
-        delete response[i].array;
-      }
+        // add event click to surahs => popup
 
-      // add event click to surahs => popup
-      let surahsNames = document.querySelectorAll(".surahs .container .surah");
-      let popUp = document.querySelector(".surahs .popup");
-      let popContent = document.querySelector(".surahs .popup .pop-content");
-      let popClose = document.querySelector(".surahs .popup .popup-close");
-
-      surahsNames.forEach((surahContainer) => {
-        surahContainer.addEventListener("click", function () {
+        div.addEventListener("click", function () {
           for (i = 0; i < response.length; i++) {
             if (`number-${response[i]["id"]}` == surahContainer.classList[1]) {
               let h3Ar = document.createElement("h3");
@@ -53,6 +46,7 @@ window.addEventListener("load", function () {
               pEn.innerHTML = response[i].en;
               popContent.appendChild(pEn);
 
+              //add event click to popup close
               popUp.style.cssText = "transform: translateX(0);";
               popClose.addEventListener("click", () => {
                 popContent.innerHTML = "";
@@ -61,13 +55,7 @@ window.addEventListener("load", function () {
             }
           }
         });
-      });
+        this.document.querySelector(".surahs .container").appendChild(div);
+      }
     });
 });
-// api for quran array
-
-function getSurah(surahContainer, surah) {
-  let surahContent;
-
-  return surahContent;
-}
