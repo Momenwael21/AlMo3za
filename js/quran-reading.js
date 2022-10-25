@@ -24,6 +24,7 @@ window.addEventListener("load", function () {
         let p = this.document.createElement("p");
         p.textContent = `و عدد آياتها ${response[i].array.length}`;
         div.appendChild(p);
+        this.document.querySelector(".surahs .container").appendChild(div);
 
         // add event click to surahs => popup
 
@@ -59,7 +60,6 @@ window.addEventListener("load", function () {
             }
           }
         });
-        this.document.querySelector(".surahs .container").appendChild(div);
       }
     });
 });
