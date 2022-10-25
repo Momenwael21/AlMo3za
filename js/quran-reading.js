@@ -35,29 +35,31 @@ window.addEventListener("load", function () {
 
       surahsNames.forEach((surahContainer) => {
         surahContainer.addEventListener("click", function () {
-          let surahDetails = getSurah(surahContainer, response);
+          for (i = 0; i < response.length; i++) {
+            if (`number-${response[i]["id"]}` == surahContainer.classList[1]) {
+              let h3Ar = document.createElement("h3");
+              h3Ar.textContent = response[i].name;
+              popContent.append(h3Ar);
 
-          let h3Ar = document.createElement("h3");
-          h3Ar.textContent = surahDetails.name;
-          popContent.append(h3Ar);
+              let pAr = document.createElement("p");
+              pAr.innerHTML = response[i].ar;
+              popContent.appendChild(pAr);
 
-          let pAr = document.createElement("p");
-          pAr.innerHTML = surahDetails.ar;
-          popContent.appendChild(pAr);
+              let h3En = document.createElement("h3");
+              h3En.textContent = response[i].name_en;
+              popContent.append(h3En);
 
-          let h3En = document.createElement("h3");
-          h3En.textContent = surahDetails.name_en;
-          popContent.append(h3En);
+              let pEn = document.createElement("p");
+              pEn.innerHTML = response[i].en;
+              popContent.appendChild(pEn);
 
-          let pEn = document.createElement("p");
-          pEn.innerHTML = surahDetails.en;
-          popContent.appendChild(pEn);
-
-          popUp.style.cssText = "transform: translateX(0);";
-          popClose.addEventListener("click", () => {
-            popContent.innerHTML = "";
-            popUp.style.cssText = "transform: translateX(100%);";
-          });
+              popUp.style.cssText = "transform: translateX(0);";
+              popClose.addEventListener("click", () => {
+                popContent.innerHTML = "";
+                popUp.style.cssText = "transform: translateX(100%);";
+              });
+            }
+          }
         });
       });
     });
@@ -66,11 +68,6 @@ window.addEventListener("load", function () {
 
 function getSurah(surahContainer, surah) {
   let surahContent;
-  for (i = 0; i < surah.length; i++) {
-    if (`number-${surah[i]["id"]}` == surahContainer.classList[1]) {
-      surahContent = surah[i];
-      break;
-    }
-  }
+
   return surahContent;
 }

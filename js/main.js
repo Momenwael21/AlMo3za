@@ -30,21 +30,20 @@ navLinks.forEach((ele) => {
 });
 
 // change nav background
-let fixedNav = document.querySelector(".navbar");
+let fixedNav = document.querySelector("nav");
 let navContainer = document.querySelector(".navbar .container");
+let navToggler = document.querySelector(".navbar .navbar-toggler");
+console.log();
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
     fixedNav.classList.add("active");
-
-    navContainer.classList.add("container-fluid");
-    navContainer.classList.remove("container");
   } else {
     fixedNav.classList.remove("active");
-
-    navContainer.classList.remove("container-fluid");
-    navContainer.classList.add("container");
   }
+  navToggler.addEventListener("click", function () {
+    fixedNav.classList.add("active");
+  });
 });
 
 document
