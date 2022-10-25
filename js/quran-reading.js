@@ -28,8 +28,11 @@ window.addEventListener("load", function () {
         // add event click to surahs => popup
 
         div.addEventListener("click", function () {
+          if (popContent.innerHTML != "") {
+            popContent.innerHTML = "";
+          }
           for (i = 0; i < response.length; i++) {
-            if (`number-${response[i]["id"]}` == surahContainer.classList[1]) {
+            if (`number-${response[i]["id"]}` == div.classList[1]) {
               let h3Ar = document.createElement("h3");
               h3Ar.textContent = response[i].name;
               popContent.append(h3Ar);
