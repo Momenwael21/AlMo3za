@@ -55,6 +55,7 @@ window.addEventListener("load", function () {
                 popContent.innerHTML = "";
                 popUp.style.cssText = "transform: translateX(100%);";
               });
+              break;
             }
           }
         });
