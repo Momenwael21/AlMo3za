@@ -37,6 +37,7 @@ body::before {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   cursor: pointer;
+  font-family: "Cairo", sans-serif;
 }
 
 .surahs .surah::before {
