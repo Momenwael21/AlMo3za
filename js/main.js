@@ -33,7 +33,6 @@ navLinks.forEach((ele) => {
 let fixedNav = document.querySelector("nav");
 let navContainer = document.querySelector(".navbar .container");
 let navToggler = document.querySelector(".navbar .navbar-toggler");
-console.log();
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
