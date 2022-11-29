@@ -28,7 +28,7 @@ On this page, you can select between Quran mujawad and moratal, then choose a sp
 
 use
 
-- $ git clone https://github.com/Momenwael21/Project.git
+- $ git clone https://github.com/Momenwael21/Almaoza.git
   to clone the repository in your computer
 
 then start debug.
