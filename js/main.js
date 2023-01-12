@@ -65,12 +65,8 @@ let btnNext = document.querySelector(".hadith .buttons .btn-next");
 let hadithIndex = 0;
 
 let hadiths = fetch(
-  "https://ahadith-api.herokuapp.com/api/ahadith/all/ar-tashkeel"
+  "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-bukhari.json"
 ).then((resp) => resp.json());
-// .then((resp) => {
-//   resp.AllChapters.length = 300;
-//   return resp;
-// });
 
 hadithChange();
 
@@ -84,11 +80,11 @@ btnPrev.addEventListener("click", function () {
 });
 
 function hadithChange() {
-  hadithIndex > 1895 ? (hadithIndex = 0) : hadithIndex;
-  hadithIndex < 0 ? (hadithIndex = 1895) : hadithIndex;
+  hadithIndex > 7588 ? (hadithIndex = 0) : hadithIndex;
+  hadithIndex < 0 ? (hadithIndex = 7588) : hadithIndex;
   hadiths.then((data) => {
-    hadithContiner.textContent = data.AllChapters[hadithIndex].Ar_Text;
-    hadithNumber.textContent = `${data.AllChapters[hadithIndex].Hadith_ID}/${data.AllChapters.length}`;
+    hadithContiner.textContent = data.hadiths[hadithIndex].text;
+    hadithNumber.textContent = `${data.hadiths[hadithIndex].hadithnumber}/${data.hadiths.length}`;
     hadithIndex++;
   });
 }
