@@ -18,7 +18,7 @@ window.addEventListener("load", function () {
         div.appendChild(h5);
 
         let p = this.document.createElement("p");
-        p.textContent = `و عدد آياتها ${response[i].array.length}`;
+        p.textContent = `سورة ${response[i].type}`;
         div.appendChild(p);
         this.document
           .querySelector(".surahs .surahs-container")
