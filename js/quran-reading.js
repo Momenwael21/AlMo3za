@@ -13,6 +13,7 @@ window.addEventListener("load", function () {
   fetch("../APIs/quran-reading.json")
     .then((resp) => resp.json())
     .then((response) => {
+      console.log(response);
       for (i = 0; i < response.length; i++) {
         let div = this.document.createElement("div");
         div.classList.add("surah", `${response[i].id}`);
@@ -22,7 +23,7 @@ window.addEventListener("load", function () {
         div.appendChild(h5);
 
         let p = this.document.createElement("p");
-        p.textContent = `و عدد آياتها ${response[i].array.length}`;
+        p.textContent = `سورة ${response[i].type}`;
         div.appendChild(p);
         this.document.querySelector(".surahs .container").appendChild(div);
       }
